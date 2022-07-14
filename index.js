@@ -48,6 +48,12 @@ app.get('/api/notes', (request, response) => {
   });
 });
 
+app.put('/api/notes/:id', (request, response) => {
+  Note.findByIdAndUpdate(request.params.id).then((note) => {
+    response.json(note);
+  });
+});
+
 app.delete('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id);
   notes = notes.filter((note) => note.id !== id);
