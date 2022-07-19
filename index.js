@@ -44,28 +44,6 @@ app.get('/api/notes', (request, response) => {
   });
 });
 
-<<<<<<< HEAD
-app.put('/api/notes/:id', (request, response) => {
-  Note.findByIdAndUpdate(request.params.id).then((note) => {
-    response.json(note);
-  });
-});
-
-app.delete('/api/notes/:id', (request, response) => {
-  const id = Number(request.params.id);
-  notes = notes.filter((note) => note.id !== id);
-
-  response.status(204).end();
-=======
-app.delete('/api/notes/:id', (request, response, next) => {
-  Note.findByIdAndRemove(request.params.id)
-    .then((result) => {
-      response.status(204).end();
-    })
-    .catch((error) => next(error));
->>>>>>> 785358fc459f5c632c735b9a070fd8dc954b772b
-});
-
 app.get('/api/notes/:id', (request, response, next) => {
   Note.findById(request.params.id)
     .then((note) => {
