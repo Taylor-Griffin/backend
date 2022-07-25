@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const config = require('./utils/config');
 const notesRouter = require('./controllers/notes');
 const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 const mongoose = require('mongoose');
 
-// logger.info('connecting to', config.MONGODB_URI);
+logger.info('connecting to', config.MONGODB_URI);
 
 mongoose
-  .connect(MONGODB_URI)
+  .connect(config.MONGODB_URI)
   .then(() => {
     logger.info('connected to MongoDB');
   })
