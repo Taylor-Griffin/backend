@@ -1,12 +1,10 @@
-GET http://localhost:3001/api/notes/
-
-###
 
 POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 
  {
-    "content": "Testy",
-    "important": false
+    "content": "TestyRonaBoosacca",
+    "important": false,
+    "userId":"62eaf9c7f36157173b93c9de"
 }
